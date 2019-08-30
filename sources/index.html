@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Tomar Evidencia</title>
+		<style>
+			body {font-size: 15px; font-family: Georgia, serif;}
+		
+			* {margin: 0; padding: 0;}	
+			
+			/*Estilos del formulario*/
+			.tomar-evidencia.page {margin: 10px 0px 0px 90px;}
+			.tomar-evidencia.formulario {margin-left: 30px; margin-right: 30px; float: left;}
+			.tomar-evidencia.formulario .campo { margin-top: 10px; float: left}
+			.tomar-evidencia.formulario .campo label { display: inline-block; width: 100px; text-align: right; float:left; padding-right: 5px; }
+			.tomar-evidencia.formulario .botonera { margin-top: 10px; padding: 5px; float:left; }
+			.tomar-evidencia.imagen {float: left; width: 100%; border-radius: 5px 5px 5px 5px;}
+			.tomar-evidencia.imagen img { width:550px; border-radius: 5px 5px 5px 5px; }
+			
+			.exportar.page {margin: 10px 0px 0px 90px;}
+			.exportar.formulario {margin-left: 30px; margin-right: 30px;}
+			.exportar.formulario .campo { margin-top: 10px; }
+			.exportar.formulario .campo label { display: inline-block; width: 150px; text-align: right; float:left; padding-right: 5px; }
+			.exportar.formulario .botonera { margin-top: 10px; padding: 5px;  width: 500px; float: left;}
+
+			.configurar.page {margin: 10px 0px 0px 90px;}
+			.configurar.formulario {margin-left: 30px; margin-right: 30px;}
+			.configurar.formulario .campo { margin-top: 10px; }
+			.configurar.formulario .campo label { display: inline-block; width: 150px; text-align: right; float:left; padding-right: 5px; }
+			.configurar.formulario .botonera { margin-top: 10px; padding: 5px;  width: 500px; float: left;}
+			
+			/*Estilos del menu*/
+			.tomar-evidencia.nav {float: left; width: 80px; height: 130px;}
+			.tomar-evidencia.nav ul { list-style-type: none; width: 80px; height: 80px; }
+			.tomar-evidencia.nav li { background-color:#FFF; padding: 10px; overflow: auto; border: 1px solid #888; margin: 2px; border-radius: 5px 5px 5px 5px; }			 
+			.tomar-evidencia.nav li img { width: 52px; height: 52px;}
+			.tomar-evidencia.nav li:hover { background: #EEE; border: 1px solid #888; cursor: pointer; }
+			.row { display: table; }
+		</style>
+	</head>
+	<body>
+	
+		<div class="tomar-evidencia nav">
+			<ul>
+				<li id="menuTomarEvidencia">
+					<img src="assets/icons/camera.png">
+				</li>
+				<li id="menuExportar">
+					<img src="assets/icons/article.png">
+				</li>
+				<li id="menuConfigurar">
+					<img src="assets/icons/config.png">
+				</li>
+			</ul>
+		</div>
+	
+		<div id="tomarEvidencia" class="tomar-evidencia page">
+			<h2>Tomar Evidencia</h2>
+			<div class="tomar-evidencia imagen">
+				<img src="" id="img_tmp" />
+			</div>
+			<div class="tomar-evidencia formulario">
+				<div class="row">
+					<div class="campo">
+						<label>Unitarias</label>
+						<input type="radio" name="rdo_test_type" id="rdo_test_type_unit" value="U"/>
+					</div>
+					<div class="campo">
+						<label>Integradas</label>
+						<input type="radio" name="rdo_test_type" id="rdo_test_type_integ" value="I"/>
+					</div>
+				</div>
+				<div class="campo">
+					<label>Requerimiento</label>
+					<input type="text" name="txt_requerimiento" id="txt_requerimiento" style="width: 130px;"/>
+				</div>
+				<div class="campo">
+					<label>N&uacute;mero</label>
+					<input type="text" name="txt_numero" id="txt_numero" style="width: 130px;"/>
+				</div>
+				<div class="campo">
+					<label>Prueba</label>
+					<input type="text" name="txt_prueba" id="txt_prueba" style="width: 370px;" />
+				</div>
+				<div class="campo">
+					<label>Descripci&oacute;n</label>
+					<input type="text" name="txt_descripcion" id="txt_descripcion" style="width: 370px;" />
+				</div>
+				<div class="botonera">
+					<button name="btn_te_aceptar" id="btn_te_aceptar">Aceptar</button>
+					<button name="btn_te_cancelar" id="btn_te_cancelar">Cancelar</button>
+					<button name="btn_te_resetTest" id="btn_te_resetTest">Reestablecer</button>
+				</div>
+			</div>
+		</div>
+		
+		<div id="exportar" class="exportar page">
+			<h2>Exportar Evidencias</h2>
+			<div class="exportar formulario">
+				<div class="campo">
+					<label>Requerimiento</label>
+					<input type="text" name="txt_exp_requerimiento" id="txt_exp_requerimiento" />
+					<button id="btn_exp_requerimiento" class="very-sweet-looking">Examinar</button>
+				</div>
+				<div class="botonera">
+					<button name="btn_exp_aceptar" id="btn_exp_aceptar">Aceptar</button>
+					<button name="btn_exp_cancelar" id="btn_exp_cancelar">Cancelar</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="configurar" class="configurar page">
+			<h2>Configuración</h2>
+			<div class="configurar formulario">
+				<div class="campo">
+					<label>Nombre y Apellido</label>
+					<input type="text" name="txt_dp_name" id="txt_dp_name" />
+				</div>
+				<div class="campo">
+					<hr>
+				</div>
+				<div class="campo">
+					<label>Carpeta de evidencias</label>
+					<input type="text" name="txt_path_evidencia" id="txt_path_evidencia" />
+					<button id="btn_evd_examinar" class="very-sweet-looking">Examinar</button>
+				</div>
+				<div class="campo">
+					<label>Carpeta temporal</label>
+					<input type="text" name="txt_path_temporal" id="txt_path_temporal" />
+					<button id="btn_tmp_examinar" class="very-sweet-looking">Examinar</button>
+				</div>
+				<div class="campo">
+					<hr>
+				</div>
+				<div class="campo">
+					<label>Cerrar al minimizar</label>
+					<input type="checkbox" name="chk_cls_min" id="chk_cls_min" /> 
+					(Requiere reinicio)
+				</div>
+				<div class="botonera">
+					<button name="btn_cf_guardar" id="btn_cf_guardar">Guardar</button>
+					<button name="btn_cf_restablecer" id="btn_cf_restablecer">Restablecer</button>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			require('./app/renderer.js')
+			require('./app/screenshot/tomar-evidencia.js')
+			require('./app/export/exportar-evidencia.js')
+			require('./app/config/configurar.js')
+		</script>
+		
+	</body>
+</html>

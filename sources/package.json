@@ -1,0 +1,20 @@
+{
+  "name": "Evidencias",
+  "version": "0.1.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron-builder": "^20.38.3"
+  },
+  "dependencies": {
+    "docxtemplater": "^3.9.6",
+    "electron-config": "^2.0.0",
+    "electron-json-config": "^1.5.3",
+    "electron-screenshot": "^1.0.5",
+    "fs-extra": "^7.0.1",
+    "jszip": "^2.6.1",
+    "keycode": "^2.2.0",
+    "keypress": "^0.2.1",
+    "open-docxtemplater-image-module": "^1.0.3",
+    "screenshot-desktop": "^1.5.3"
+  }
+}
